@@ -37,9 +37,8 @@ class VehicleFactory(ABC):
     def create(self) -> Vehicle:
         raise NotImplementedError
 
-
     @staticmethod
-    def get_wheels_characteristics(self) -> str:
+    def get_wheels_characteristics() -> str:
         """Creation is not the main goal of a factory usually. This could have some business logic.
         The main goal of a factory is disconnect this logic from the concrete implementations
         of the product"""
@@ -67,10 +66,11 @@ my_truck = TruckFactory().create()
 
 class Application:
     """If we had an application, it could play with our concrete implementations of Vehicle"""
-    def __init__(self):
+
+    def __init__(self) -> None:
         self.vehicle: Optional[Vehicle] = None
 
-    def choose_vehicle(self, vehicle_config: str):
+    def choose_vehicle(self, vehicle_config: str) -> None:
         if vehicle_config == "car":
             self.vehicle = CarFactory().create()
 
