@@ -47,14 +47,15 @@ class VehicleFactory(ABC):
 
 
 class CarFactory(VehicleFactory):
-    "Our concrete factory will return a son of Vehicle (Car), which is still a Vehicle"
+    """Our concrete factory will return a son of Vehicle (Car), which is still a Vehicle. But our type of
+    return is Vehicle, because we don't want to break down our father class (Liskov Substitution Principle)"""
 
-    def create(self) -> Car:
+    def create(self) -> Vehicle:
         return Car()
 
 
 class TruckFactory(VehicleFactory):
-    def create(self) -> Truck:
+    def create(self) -> Vehicle:
         return Truck()
 
 
